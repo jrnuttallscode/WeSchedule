@@ -1,0 +1,59 @@
+﻿@model IEnumerable<WeSchedule.Models.Availability>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+       <tr>
+          <th>
+             @Html.DisplayNameFor(model => model.empID)
+          </th>
+          <th>
+             Day of Week
+          </th>
+          <th>
+             @Html.DisplayNameFor(model => model.st)
+          </th>
+          <th>
+             @Html.DisplayNameFor(model => model.et)
+          </th>
+          <th>
+             @Html.DisplayNameFor(model => model.reason)
+          </th>
+          <th></th>
+       </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.empID)
+            </td>
+            <td>
+               @Html.DisplayFor(modelItem=>item.DayId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.st)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.et)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.reason)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.DayId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.DayId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.DayId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
